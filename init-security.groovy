@@ -6,7 +6,7 @@ def instance = Jenkins.getInstance()
 println "--> Setting up admin user and disabling anonymous access"
 
 def hudsonRealm = new HudsonPrivateSecurityRealm(false)
-hudsonRealm.createAccount("rakib", "rakib")   // change password
+hudsonRealm.createAccount("rakib", "rakib")   
 hudsonRealm.createAccount("ci", "rakib")        // pipeline user
 instance.setSecurityRealm(hudsonRealm)
 
