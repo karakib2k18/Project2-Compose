@@ -20,6 +20,7 @@ services:
       - docker-certs-ca:/certs/ca         # CA certs (server side)
       - docker-certs-client:/certs/client # client certs (shared read-only with Jenkins)
       - dind-cache:/var/lib/docker        # cache to speed up image builds
+      - jenkins-data:/var/jenkins_home    # <-- ADD THIS: share Jenkins home/workspace with DinD
     networks:
       jenkins:
         aliases:
@@ -60,3 +61,4 @@ services:
       timeout: 5s
       retries: 10
     restart: unless-stopped
+
